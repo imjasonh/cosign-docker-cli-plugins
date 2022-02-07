@@ -12,7 +12,7 @@ EOF
   exit
 fi
 
-if [ "$#" -lt 1 ]; then
+if [ "$#" -lt 2 ]; then
   echo "Must pass at least one arg, the image to pull"
   exit 1
 fi
@@ -22,6 +22,6 @@ if [[ -x "cosign" ]]; then
   exit 1
 fi
 
-cosign verify $@
+cosign verify "${@:2}"
 
-docker pull $1
+docker pull $2
