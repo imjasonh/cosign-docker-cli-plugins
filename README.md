@@ -11,14 +11,11 @@ Docker CLI plugins are found in `~/.docker/cli-plugins`, with names like `docker
 You can fetch and install these like so:
 
 ```
-for cmd in \
-  docker-pullx \
-  docker-pushx \
-  docker-sign \
-  docker-verify; do
-    curl -o ~/.docker/cli-plugins/${cmd} \
-        https://raw.githubusercontent.com/imjasonh/cosign-docker-cli-plugins/${cmd}.sh && \
-        chmod ~/.docker/cli-plugins/${cmd}
+mkdir -p ~/.docker/cli-plugins
+for cmd in docker-pullx docker-pushx docker-sign docker-verify; do
+    curl https://raw.githubusercontent.com/imjasonh/cosign-docker-cli-plugins/main/${cmd}.sh \
+        -o ~/.docker/cli-plugins/${cmd} && \
+        chmod +x ~/.docker/cli-plugins/${cmd}
 done
 ```
 
