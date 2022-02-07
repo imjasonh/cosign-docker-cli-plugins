@@ -18,7 +18,7 @@ if [ "$#" -lt 2 ]; then
 fi
 
 if [[ -x "cosign" ]]; then
-  echo "Must install cosign"
+  echo "Must install cosign, refer to installation page https://docs.sigstore.dev/cosign/installation/"
   exit 1
 fi
 
