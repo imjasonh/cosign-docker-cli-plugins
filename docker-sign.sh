@@ -17,12 +17,12 @@ if [ "$#" -lt 2 ]; then
   exit 1
 fi
 
-if [[ -x "cosign" ]]; then
+if ! command -v cosign &> /dev/null; then
   echo "Must install cosign, please refer to installation page: https://docs.sigstore.dev/cosign/installation/"
   exit 1
 fi
 
-if [[ -x "crane" ]]; then
+if ! command -v crane &> /dev/null; then
   echo "Must install crane, please refer to installation page: https://github.com/google/go-containerregistry/tree/main/cmd/crane#installation"
   exit 1
 fi
